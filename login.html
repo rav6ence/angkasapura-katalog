@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="title">Sign Up</h1>
+            <form action="">
+                <div class="input-group">
+                    <div class="input-field" id="nameField">
+                        <i class="fa fa-user"></i>
+                        <input type="text" placeholder="Name">
+                    </div>
+                    <div class="input-field" id="emailField">
+                        <i class="fa fa-envelope"></i>
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="input-field" id="passwordField">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <p>Lupa password? <a href="#">Click Here!</a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="button" id="signupBtn">Sign Up</button>
+                    <button type="button" id="signinBtn" class="disable">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+    let signupBtn = document.getElementById("signupBtn");
+    let signinBtn = document.getElementById("signinBtn");
+    let nameField = document.getElementById("nameField");
+    let emailField = document.getElementById("emailField");
+    let passwordField = document.getElementById("passwordField");
+    let title = document.getElementById("title");
+
+    function isFieldEmpty(field) {
+        return field.value.trim() === '';
+    }
+
+    function login() {
+        if(!isFieldEmpty(emailField) && !isFieldEmpty(passwordField)){
+            window.location.href = "index.html";
+        }else{
+            alert("Email dan Password harap diisi");
+        }
+    }
+
+    signinBtn.onclick = function(){
+        nameField.style.maxHeight = "0";
+        title.innerHTML = "Sign In"
+        signupBtn.classList.add("disable");
+        signinBtn.classList.remove("disable");
+        window.location.href - "index.html"
+    }
+    signupBtn.onclick = function(){
+        nameField.style.maxHeight = "180px";
+        title.innerHTML = "Sign Up"
+        signupBtn.classList.remove("disable");
+        signinBtn.classList.add("disable");
+        window.location.href - "index.html"
+    }
+
+    document.addEventListener("keypress", function(event){
+        if(event.key === "Enter") {
+            if(!isFieldEmpty(emailField) && !isFieldEmpty(passwordField)){
+                login();
+            }
+        }
+    });
+    </script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
